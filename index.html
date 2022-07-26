@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Rank Simulator</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/custom-tool-tip.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/mathquill.css">
+</head>
+
+<body>
+    <section id="PageContainer" class="container">
+
+        <div style="position: relative;">
+            <span class="help-tip" id="AddNodesTip">
+                <p>1. to add the edge (u, v) press on u then on v
+                    <br>
+                    2. to erase node/edge right click it
+                    <br>
+                    3. N - random walk length
+                    <br>
+                    4. t - number of algorithm iterations
+                    <br>
+                    5. p - probality for random vertex
+
+                </p>
+
+            </span>
+        </div>
+        <h1 id="PageTitle">Page Rank Algorithm</h1>
+        <div id="PageRankGraphContainer">
+        </div>
+
+        <div id="ControlPanelDiv">
+            <div class="group">
+                <button id="AddNodeButton" class="btn btn-primary">Add Node</button>
+                <button id="ClearButton" class="btn btn-primary">Clear</button>
+                <button id="CirclePositionButton" class="btn btn-primary">Circle</button>
+                <button id="GridPositionButton" class="btn btn-primary">Grid</button>
+                <button id="BfsPositionButton" class="btn btn-primary">BFS</button>
+            </div>
+            <div id="AlgorithmOperation">
+
+                <label for="NParameterTextBox">N</label>
+                <input type="number" id="NParameterTextBox" min="1" max="32" value="32" required>
+
+                <label for="TParameterTextBox">t</label>
+                <input type="number" id="TParameterTextBox" min="2" max="10000" value="4096" required>
+
+                <label for="PParameterTextBox">p</label>
+                <input type="number" id="PParameterTextBox" min="0" max="1" step='any' value="0.125" required>
+
+                <button id="RunPageRankButton" class="btn btn-success">Run PageRank</button>
+            </div>
+        </div>
+        <div id="RandomGraphs">
+
+            <h1>Random Graphs</h1>
+
+            <label for="NumPagesParameterTextBox">Number Pages</label>
+            <input type="number" id="NumPagesParameterTextBox" min="1" max="50" value="10" required>
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="RunAlgorithmOnGraphCreatedSwitch" checked>
+                <label class="form-check-label" for="RunAlgorithmOnGraphCreatedSwitch">run algorithm on generated graph
+                </label>
+            </div>
+
+            <div class="card-deck">
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">First Family
+                        <span class="help-tip">
+                            <p>each edge have same probality to be in the graph</p>
+                        </span>
+
+                    </div>
+                    <div class="card-body">
+
+                        <label for="FirstFamilyEdgeProbTextBox">Edge Probality</label>
+                        <input type="number" id="FirstFamilyEdgeProbTextBox" min="0" max="1" step='any' value="0.125"
+                            required class="form-control" />
+                        <button type="button" class="btn btn-dark form-control mt-2"
+                            id="GenerateFirstFamilyGraphButton">Generate</button>
+
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Second Family <span class="help-tip">
+                            <p>edge (u, x) has probality qi(x) to be in the graph</p>
+                        </span> </div>
+                    <div class="card-body">
+
+                        <p>Math Function for qi(x)</p>
+                        <span id="MathInputTextBox" class="mq-root-block mq-hasCursor"></span>
+                        <button type="button" class="btn btn-dark form-control mt-2"
+                            id="GenerateSecondFamilyGraphButton">Generate</button>
+                        <div id="SecondFamilyErrorLabel" class="mt-2">error</div>
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Random Tree
+                        <span class="help-tip">
+                            <p>generate random tree using <a href="https://en.wikipedia.org/wiki/Pr%C3%BCfer_sequence"
+                                    target="_blank">Prüfer sequence</a></p>
+                        </span>
+
+                    </div>
+                    <div class="card-body">
+
+                        <button type="button" class="btn btn-dark form-control mt-2"
+                            id="GenerateRandomTreeButton">Generate</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="Analysis">
+            <h1>Ranks Disturbation</h1>
+            <div id="VertexRanksChartDiv">
+            </div>
+            <h1>Din To Avg Rank</h1>
+            <div id="DinRanksChartDiv">
+            </div>
+        </div>
+
+    </section>
+
+    <div id="testhh"></div>
+
+
+
+</body>
+<script src="./js/utils.js"></script>
+<script src='./js/latex-to-js.js'></script>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src='./js/cytoscape.min.js'></script>
+<script src='./js/python.js'></script>
+<script src="./js/graph.js"></script>
+<script src='./js/pagerank.js'></script>
+<script src='./js/random_graphs.js'></script>
+<script src='./components/PageRankController.js'></script>
+<script src='./js/Chart.js'></script>
+<script src='./components/GraphChart.js'></script>
+<script src="./js/evaluatex/dist/evaluatex.min.js"></script>
+<script src='./js/mathquill.js'></script>
+<script src='./components/MathInput.js'></script>
+<script src='./components/GraphChartComponent.js'></script>
+<script src='./js/index.js'></script>
+
+
+</html>
