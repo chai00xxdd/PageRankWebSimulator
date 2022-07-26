@@ -1,0 +1,96 @@
+@font-face{
+  src:url('../fonts/RubikMoonrocks-Regular.ttf');
+  font-family: Rubik;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik','Corben', Georgia, Times, serif;   
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+
+#PageTitle{
+ font-size: 60px;
+}
+
+
+
+#PageRankGraphContainer {
+  border: 2px solid black;
+  width:100%;
+  height: 500px;
+  min-width: 300px;
+  display: inline-block;
+}
+
+.Page {
+  height: 80px;
+  width: 80px;
+  background-color: brown;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+}
+
+#ControlPanelDiv {
+  margin-top: 2%;
+}
+
+body{
+  background-color:white;
+  background-image: url('../images/pagerank.jpg');
+  background-size: contain;
+ 
+}
+
+.card-header .help-tip{
+  right: 10px;
+}
+
+
+#PageContainer{
+  background-color:lavenderblush;
+}
+
+
+
+#Analysis {
+  margin-top: 2%;
+}
+
+#AlgorithmOperation {
+  margin-top: 15px;
+}
+
+#AlgorithmOperation input {
+  width: 70px;
+}
+
+#VertexRanksChartDiv {
+  position: relative;
+  width: 90%;
+  
+}
+
+#DinRanksChartDiv {
+  position: relative;
+  width: 90%;
+  
+}
+
+#RunPageRankButton{
+    margin-top: 8px;
+}
+
+
+#AddNodesTip{
+ right:8px;
+ top:18px;
+}
+
+@media (max-width: 380px) {
+  #AddNodesTip{
+    visibility: hidden;
+  }
+}
